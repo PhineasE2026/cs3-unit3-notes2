@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TODO</title>
+    </head>
+
+    <body>
+        <div class="app-container">
+            <h1> To Do List </h1>
+            <table>
+                <tr>
+                    <th>Task</th>
+                    <th>Added</th>
+                    <th>Actions</th>
+                </tr>
+                {% for task in tasks %}
+                <tr>
+                    <td> {{ task.content }} </td>
+                    <td> {{ task.date_created }} </td>
+                    <td> <a href="/delete/{{ task.id }}">X</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <form action="/" method="POST">
+                <input type="text" name="content" required>
+                <input type="submit" value="Add Task">
+            </form>
+        </div>
+    </body>
+</html>

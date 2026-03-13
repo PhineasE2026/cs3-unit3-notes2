@@ -10,6 +10,7 @@ db =  SQLAlchemy(app)
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200), nullable=False)
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
 @app.route('/', methods=['GET', 'POST',])
 def index():
@@ -24,8 +25,9 @@ def index():
             return 'Error adding task'
         
     all_tasks = Task.query.all()
+    return render_template('index.html', tasks=all_tasks)
 
 if __name__ == '__main__':
-    with app.app.context():
+    with app.app_context():
         db.create_all()
     app.run(host='0.0.0.0', port=5000, debug=True)
