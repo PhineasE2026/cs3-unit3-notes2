@@ -1,0 +1,103 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #ff0000;
+    background-color: #000000;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #ff0000;
+    font-family: 'Gothic A1', sans-serif;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+    color: #820000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+ul, ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Forms */
+input, textarea, select, button {
+    font-family: inherit;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #730000;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #620000;
+    transform: scale(1.05);
+}
+
+/* Container */
+.container,
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.card {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Fade in table rows on each page load */
+table tr {
+    animation: rowFade 0.5s ease-out;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(100px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rowFade {
+    from { opacity: 0; transform: translateY(100px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(-1000%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
